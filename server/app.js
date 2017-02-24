@@ -5,17 +5,19 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-// import "mongoose"
+// import "mongoose" NPM Module
 let mongoose = require('mongoose');
 
-// URI
-let URI = "mongodb://localhost/videogames";
+// import the config module
+let config = require('./config/db');
 
-//let URI = "mongodb://thomas:123456@ds054999.mlab.com:54999/videogames";
+// connect to the Mongo db using the URI above
+mongoose.connect(config.URI);
 
-mongoose.connect(URI);
-
+// create a db object and make a reference to the connection
 let db = mongoose.connection;
+
+// listen for a successful connection
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log("Conneced to MongoDB...");
@@ -35,7 +37,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('/', index);
 
