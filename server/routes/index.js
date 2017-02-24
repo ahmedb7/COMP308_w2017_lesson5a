@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
    });
 });
 
-/* GET about page. */
+/* GET GamesList page. */
 router.get('/gamelist', (req, res, next) => {
   // find all games in the games collection
 
