@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET about page. */
-router.get('/about', (req, res, next) => {
+router.get('/gamelist', (req, res, next) => {
   // find all games in the games collection
 
   game.find((err, games) => {
