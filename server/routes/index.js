@@ -27,8 +27,8 @@ router.get('/about', (req, res, next) => {
       return console.error(err);
     }
     else {
-      res.render('content/about', {
-        title: 'About',
+      res.render('content/gamelist', {
+        title: 'Gamelist',
         games: games
       });
 
@@ -40,19 +40,7 @@ router.get('/about', (req, res, next) => {
 
 });
 
-/* GET products page. */
-router.get('/projects', (req, res, next) => {
-  res.render('content/projects', {
-    title: 'Projects'
-   });
-});
 
-/* GET services page. */
-router.get('/services', (req, res, next) => {
-  res.render('content/services', {
-    title: 'Services'
-   });
-});
 
 /* GET contact page. */
 router.get('/contact', (req, res, next) => {
